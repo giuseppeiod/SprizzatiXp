@@ -45,13 +45,13 @@ struct WeatherView: View {
                     }
                     
                     Spacer()
-                        .frame(height:  80)
+                        .frame(width: 300.0, height:  -50)
                     
-                    AsyncImage(url: URL(string: "https://cdn.pixabay.com/photo/2020/01/24/21/33/city-4791269_960_720.png")) { image in
+                    AsyncImage(url: URL(string: "https://www.campanialandtelling.it/wp-content/uploads/2021/03/mappa-CAMPANIA.png")) { image in
                         image
-                            .resizable()
+                            .resizable(capInsets: EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 350)
+                            .frame(width: 360)
                     } placeholder: {
                         ProgressView()
                     }
@@ -91,8 +91,9 @@ struct WeatherView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-        .preferredColorScheme(.dark)
+        .background(Color(.systemBlue))
+        //.preferredColorScheme(.dark)
+        .foregroundColor(.black)
     }
 }
 

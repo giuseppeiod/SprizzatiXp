@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7C119D2947483A0005720B /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C119C2947483A0005720B /* ColorLibrary.swift */; };
 		22401C822756A8FB000305B0 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22401C812756A8FB000305B0 /* WeatherView.swift */; };
 		22401C842756AB8D000305B0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22401C832756AB8D000305B0 /* ModelData.swift */; };
 		22401C862756ABD6000305B0 /* weatherData.json in Resources */ = {isa = PBXBuildFile; fileRef = 22401C852756ABD6000305B0 /* weatherData.json */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7C119C2947483A0005720B /* ColorLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
 		22401C812756A8FB000305B0 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		22401C832756AB8D000305B0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		22401C852756ABD6000305B0 /* weatherData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weatherData.json; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				22401C892756B652000305B0 /* WeatherRow.swift */,
 				22401C8E2756C47E000305B0 /* Extensions.swift */,
 				A12083A329473C8100C9C90F /* ViewModel.swift */,
+				0A7C119C2947483A0005720B /* ColorLibrary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				22401C8A2756B652000305B0 /* WeatherRow.swift in Sources */,
 				A12083A429473C8100C9C90F /* ViewModel.swift in Sources */,
 				22401C942756C600000305B0 /* LoadingView.swift in Sources */,
+				0A7C119D2947483A0005720B /* ColorLibrary.swift in Sources */,
 				22401C8F2756C47E000305B0 /* Extensions.swift in Sources */,
 				22401C912756C55C000305B0 /* WelcomeView.swift in Sources */,
 				22B002CE2756862C009EF4A2 /* NotiWeatherAppApp.swift in Sources */,
