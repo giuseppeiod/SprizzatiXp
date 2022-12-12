@@ -17,7 +17,7 @@ struct WelcomeView: View {
                     Image(systemName: "cloud.sun")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(.systemBlue)
                         .frame(width: 200.0, height: 200.0)
                     Text("NotiWeather")
                         .bold()
@@ -33,10 +33,10 @@ struct WelcomeView: View {
                 LocationButton(.shareCurrentLocation) {
                     locationManager.requestLocation()
                 }
-                .cornerRadius(30)
-                .symbolVariant(.fill)
-                .foregroundColor(.white)
-                .labelStyle(.titleAndIcon)
+               .cornerRadius(30)
+               .symbolVariant(.fill)
+               .foregroundColor(.white)
+               .labelStyle(.titleAndIcon)
             }
             
             
