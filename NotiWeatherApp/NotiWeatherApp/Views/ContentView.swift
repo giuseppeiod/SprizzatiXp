@@ -8,32 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Replace YOUR_API_KEY in WeatherManager by your own for the app to work
-    @StateObject var locationManager = LocationManager()
-    var weatherManager = WeatherManager()
-    @State var weather: ResponseBody?
-    
+    var viewModel = ViewModel()
     var body: some View {
         VStack {
-            if let location = locationManager.location {
-                if let weather = weather {
+            if let location = viewModel.locationManager.location {
+                if let weather = viewModel.weather {
                     WeatherView(weather: weather)
                 } else {
                     LoadingView()
                         .task {
                             do {
-                                weather = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
+                                viewModel.weather = try await viewModel.weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
                             } catch {
                                 print("Error getting weather: \(error)")
                             }
                         }
                 }
             } else {
-                if locationManager.isLoading {
+                if viewModel.locationManager.isLoading {
                     LoadingView()
                 } else {
                     WelcomeView()
-                        .environmentObject(locationManager)
+                        .environmentObject(viewModel.locationManager)
                 }
             }
         }

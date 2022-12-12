@@ -20,6 +20,7 @@
 		22B002D22756862D009EF4A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B002D12756862D009EF4A2 /* Assets.xcassets */; };
 		22B002D52756862D009EF4A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B002D42756862D009EF4A2 /* Preview Assets.xcassets */; };
 		22B002DC27568847009EF4A2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B002DB27568847009EF4A2 /* LocationManager.swift */; };
+		A12083A429473C8100C9C90F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12083A329473C8100C9C90F /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		22B002D12756862D009EF4A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22B002D42756862D009EF4A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22B002DB27568847009EF4A2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A12083A329473C8100C9C90F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,28 +52,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		22401C8B2756C446000305B0 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				22401C892756B652000305B0 /* WeatherRow.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		22401C8C2756C450000305B0 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				22B002DB27568847009EF4A2 /* LocationManager.swift */,
-				22675A8F2756988100B1D8A3 /* WeatherManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		22401C922756C58D000305B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				22B002CF2756862C009EF4A2 /* ContentView.swift */,
 				22401C812756A8FB000305B0 /* WeatherView.swift */,
+				22B002CF2756862C009EF4A2 /* ContentView.swift */,
 				22401C902756C55C000305B0 /* WelcomeView.swift */,
 				22401C932756C600000305B0 /* LoadingView.swift */,
 			);
@@ -99,9 +84,7 @@
 			children = (
 				22B002CD2756862C009EF4A2 /* NotiWeatherAppApp.swift */,
 				22401C922756C58D000305B0 /* Views */,
-				22401C8C2756C450000305B0 /* Managers */,
-				22401C8B2756C446000305B0 /* Components */,
-				22401C8E2756C47E000305B0 /* Extensions.swift */,
+				A1140B4D29473C13006D5911 /* Models */,
 				22B002D12756862D009EF4A2 /* Assets.xcassets */,
 				22B002D32756862D009EF4A2 /* Preview Content */,
 			);
@@ -116,6 +99,18 @@
 				22B002D42756862D009EF4A2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A1140B4D29473C13006D5911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				22B002DB27568847009EF4A2 /* LocationManager.swift */,
+				22675A8F2756988100B1D8A3 /* WeatherManager.swift */,
+				22401C892756B652000305B0 /* WeatherRow.swift */,
+				22401C8E2756C47E000305B0 /* Extensions.swift */,
+				A12083A329473C8100C9C90F /* ViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +187,7 @@
 				22401C822756A8FB000305B0 /* WeatherView.swift in Sources */,
 				22B002D02756862C009EF4A2 /* ContentView.swift in Sources */,
 				22401C8A2756B652000305B0 /* WeatherRow.swift in Sources */,
+				A12083A429473C8100C9C90F /* ViewModel.swift in Sources */,
 				22401C942756C600000305B0 /* LoadingView.swift in Sources */,
 				22401C8F2756C47E000305B0 /* Extensions.swift in Sources */,
 				22401C912756C55C000305B0 /* WelcomeView.swift in Sources */,
@@ -329,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NotiWeatherApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 4LS82UK5QS;
+				DEVELOPMENT_TEAM = LPVYFJX62D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -343,7 +339,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GiuseppeIodice.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = academy.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -359,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NotiWeatherApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 4LS82UK5QS;
+				DEVELOPMENT_TEAM = LPVYFJX62D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -373,7 +369,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GiuseppeIodice.WeatherApp;
+				PRODUCT_BUNDLE_IDENTIFIER = academy.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
