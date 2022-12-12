@@ -22,7 +22,7 @@ struct WelcomeView: View {
                     Text("NotiWeather")
                         .bold()
                         .font(.title)
-                    
+                        .foregroundColor(.systemBlue)
                 
                         .padding()
                 }
