@@ -38,7 +38,8 @@ struct WeatherView: View {
                                     }
                                 }                    }*/
                             
-                            Button("Notifica Meteo") {
+                            Button("Notifica Meteo")
+                            {
                                 
                                 
                                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
