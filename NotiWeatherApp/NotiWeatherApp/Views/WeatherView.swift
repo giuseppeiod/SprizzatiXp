@@ -21,7 +21,7 @@ struct WeatherView: View {
                         Text(weather.name)
                             .font(.largeTitle)
                             .fontWeight(.heavy)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.white)
                             
                         Spacer()
                     }
@@ -57,7 +57,7 @@ struct WeatherView: View {
                                         }
                                     }
                                 let content = UNMutableNotificationContent()
-                                content.title = "Sprizzati Project"
+                                content.title = "Weather Now"
                                 content.subtitle = "Project Notification"
                                 content.sound = UNNotificationSound.default
                                 
