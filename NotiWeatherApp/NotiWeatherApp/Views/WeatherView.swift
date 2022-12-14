@@ -45,37 +45,7 @@ struct WeatherView: View {
                                     }
                                 }                    }*/
                             //Spacer()
-                            Button()
                             
-                            {
-                                
-                                
-                                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                        if success {
-                                            print("All set!")
-                                        } else if let error = error {
-                                            print(error.localizedDescription)
-                                        }
-                                    }
-                                let content = UNMutableNotificationContent()
-                                content.title = "Weather Now"
-                                content.subtitle = "Project Notification"
-                                content.sound = UNNotificationSound.default
-                                
-                                // show this notification five seconds from now
-                                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                                
-                                // choose a random identifier
-                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                                
-                                // add our notification request
-                                UNUserNotificationCenter.current().add(request)                    }
-                        label: {
-                            Label("Weather Notification", systemImage: "info.circle.fill")
-                            
-                                .padding()
-                            
-                        }.foregroundColor(.black)
                                 
                         }                        .frame(width: 150, alignment: .leading)
                         
@@ -100,11 +70,42 @@ struct WeatherView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
+                
                 Spacer()
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Weather now")
-                        .bold()
-                        .padding(.bottom)
+                    Button()
+                    
+                    {
+                        
+                        
+                            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                if success {
+                                    print("All set!")
+                                } else if let error = error {
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        let content = UNMutableNotificationContent()
+                        content.title = "Weather Now"
+                        content.subtitle = "Project Notification"
+                        content.sound = UNNotificationSound.default
+                        
+                        // show this notification five seconds from now
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                        
+                        // choose a random identifier
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                        
+                        // add our notification request
+                        UNUserNotificationCenter.current().add(request)                    }
+                    label: {
+                        Label("Weather Now", systemImage: "info.bubble.fill")
+                            
+                        
+                    }.padding()
+                    
+                    .foregroundColor(.black)
+                        
                     
                     HStack {
                         WeatherRow(logo: "thermometer", name: "Min temp", value: (weather.main.tempMin.roundDouble() + ("°")))
