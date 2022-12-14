@@ -15,12 +15,19 @@ struct WeatherView: View {
         ZStack(alignment: .leading) {
             VStack {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text(weather.name)
-                        .bold()
-                        .font(.title)
-                    
+                    HStack{
+                        
+                        Spacer()
+                        Text(weather.name)
+                            .font(.largeTitle)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.black)
+                            
+                        Spacer()
+                    }
                     Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
                         .fontWeight(.light)
+                        .foregroundColor(Color.white)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -37,8 +44,8 @@ struct WeatherView: View {
                                         print(error.localizedDescription)
                                     }
                                 }                    }*/
-                            
-                            Button("Notifica Meteo")
+                            //Spacer()
+                            Button("Weather Notification")
                             {
                                 
                                 
@@ -66,23 +73,16 @@ struct WeatherView: View {
                         
                         Spacer()
                         
-                        Text(weather.main.feelsLike.roundDouble() + "°")
-                            .font(.system(size: 100))
+                        Text(weather.main.feelsLike.roundDouble() + " °C" )
+                            .font(.system(size: 50))
                             .fontWeight(.bold)
+                            .foregroundColor(Color.white)
                             .padding()
                     }
                     
                     Spacer()
                         .frame(width: 300.0, height:  -50)
-                    
-                    AsyncImage(url: URL(string: "https://www.campanialandtelling.it/wp-content/uploads/2021/03/mappa-CAMPANIA.png")) { image in
-                        image
-                            .resizable(capInsets: EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 360)
-                    } placeholder: {
-                        ProgressView()
-                    }
+                 
                     
                     Spacer()
                 }
@@ -119,7 +119,7 @@ struct WeatherView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        .background(Color(.systemBlue))
+        .background(Image("picmeteo"))
         //.preferredColorScheme(.dark)
         .foregroundColor(.black)
     }
