@@ -73,18 +73,14 @@ struct WeatherView: View {
                 
                 Spacer()
                 VStack(alignment: .leading, spacing: 20) {
-                    Button()
-                    
-                    {
-                        
-                        
-                            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                if success {
-                                    print("All set!")
-                                } else if let error = error {
-                                    print(error.localizedDescription)
-                                }
+                    Button(){
+                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                            if success {
+                                print("All set!")
+                            } else if let error = error {
+                                print(error.localizedDescription)
                             }
+                        }
                         let content = UNMutableNotificationContent()
                         content.title = "Weather Now"
                         content.subtitle = "Project Notification"
