@@ -62,7 +62,8 @@ struct ResponseBody: Decodable {
 
 extension ResponseBody.WeatherResponse {
     var mainImage: String {
-        return ["Sunny", "Clouds", "Rain"].contains(main) ? "\(main.lowercased())image" : "cloudsimage"
+        print(main)
+        return ["Sunny", "Mist", "Rain"].contains(main) ? "\(main.lowercased())image" : "cloudsimage"
     }
 }
 
