@@ -60,6 +60,12 @@ struct ResponseBody: Decodable {
     }
 }
 
+extension ResponseBody.WeatherResponse {
+    var mainImage: String {
+        return ["Sunny", "Clouds", "Rain"].contains(main) ? "\(main)Image" : "CloudsImage"
+    }
+}
+
 extension ResponseBody.MainResponse {
     var feelsLike: Double { return feels_like }
     var tempMin: Double { return temp_min }

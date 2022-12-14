@@ -128,7 +128,7 @@ struct WeatherView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        .background(Image("picmeteo"))
+        .background(Image(weather.weather[0].mainImage))
         //.preferredColorScheme(.dark)
         .foregroundColor(.black)
     }
