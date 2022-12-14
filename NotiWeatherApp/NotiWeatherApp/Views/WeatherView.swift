@@ -34,20 +34,6 @@ struct WeatherView: View {
                 
                 VStack {
                     HStack {
-                        VStack {
-                            /*Button("Request Permission") {
-                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                    if success {
-                                        print("All set!")
-                                    } else if let error = error {
-                                        print(error.localizedDescription)
-                                    }
-                                }                    }*/
-                            //Spacer()
-                            
-                                
-                        }                        .frame(width: 150, alignment: .leading)
-                        
                         Spacer()
                         
                         Text(weather.main.feelsLike.roundDouble() + " °C" )
@@ -56,11 +42,6 @@ struct WeatherView: View {
                             .foregroundColor(Color.black)
                             .padding()
                     }
-                    
-                    Spacer()
-                        .frame(width: 300.0, height:  -50)
-                 
-                    
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -74,15 +55,14 @@ struct WeatherView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Button(){
                         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                            if success {
-                                print("All set!")
-                            } else if let error = error {
+                            if let error = error {
                                 print(error.localizedDescription)
                             }
                         }
                         let content = UNMutableNotificationContent()
                         content.title = "Weather Now"
-                        content.subtitle = "Project Notification"
+                        content.subtitle =
+                        "\(weather.weather[0].description), min of \(weather.main.tempMin.roundDouble())°C and max of \(weather.main.tempMax.roundDouble())°C"
                         content.sound = UNNotificationSound.default
                         
                         // show this notification five seconds from now
@@ -95,8 +75,6 @@ struct WeatherView: View {
                         UNUserNotificationCenter.current().add(request)                    }
                     label: {
                         Label("Weather Now", systemImage: "info.bubble.fill")
-                            
-                        
                     }.padding()
                     
                     .foregroundColor(.black)

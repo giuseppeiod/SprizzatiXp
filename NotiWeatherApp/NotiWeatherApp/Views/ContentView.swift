@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Replace YOUR_API_KEY in WeatherManager by your own for the app to work
     @StateObject var locationManager = LocationManager()
     @ObservedObject private var viewModel: ViewModel = ViewModel()
 
