@@ -45,6 +45,7 @@ struct WeatherView: View {
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
+                
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -58,6 +59,7 @@ struct WeatherView: View {
                             if let error = error {
                                 print(error.localizedDescription)
                             }
+
                         }
                         let content = UNMutableNotificationContent()
                         content.title = "Weather Now"
@@ -77,7 +79,7 @@ struct WeatherView: View {
                         Label("Weather Now", systemImage: "info.bubble.fill")
                     }.padding()
                     
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.systemBlue)
                         
                     
                     HStack {
@@ -95,15 +97,15 @@ struct WeatherView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .padding(.bottom, 20)
-                .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-                .background(.white)
+                .foregroundColor(.systemBlue)
+                .background(Color(.systemBackground))
                 .cornerRadius(20, corners: [.topLeft, .topRight])
             }
         }
+        
         .edgesIgnoringSafeArea(.bottom)
         .background(Image(weather.weather[0].mainImage))
         //.preferredColorScheme(.dark)
-        .foregroundColor(.black)
     }
 }
 
