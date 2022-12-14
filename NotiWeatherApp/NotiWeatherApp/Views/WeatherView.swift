@@ -21,13 +21,13 @@ struct WeatherView: View {
                         Text(weather.name)
                             .font(.largeTitle)
                             .fontWeight(.heavy)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.black)
                             
                         Spacer()
                     }
                     Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
                         .fontWeight(.light)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.black)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -45,7 +45,8 @@ struct WeatherView: View {
                                     }
                                 }                    }*/
                             //Spacer()
-                            Button("Weather Notification")
+                            Button()
+                            
                             {
                                 
                                 
@@ -69,6 +70,13 @@ struct WeatherView: View {
                                 
                                 // add our notification request
                                 UNUserNotificationCenter.current().add(request)                    }
+                        label: {
+                            Label("Weather Notification", systemImage: "info.circle.fill")
+                            
+                                .padding()
+                            
+                        }.foregroundColor(.black)
+                                
                         }                        .frame(width: 150, alignment: .leading)
                         
                         Spacer()
@@ -76,7 +84,7 @@ struct WeatherView: View {
                         Text(weather.main.feelsLike.roundDouble() + " °C" )
                             .font(.system(size: 50))
                             .fontWeight(.bold)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.black)
                             .padding()
                     }
                     
