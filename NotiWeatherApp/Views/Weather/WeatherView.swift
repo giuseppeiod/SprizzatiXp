@@ -12,45 +12,39 @@ struct WeatherView: View {
     var notificationViewModel = NotificationViewModel()
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            VStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    HStack{
-                        Spacer()
-                        
-                        Text(weather.name)
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .foregroundColor(.black)
-                            
-                        Spacer()
-                    }
+        ZStack() {
+            VStack(alignment: .leading) {
+                HStack{
+                    Spacer()
                     
-                    Text(
-                        "Today, \(Date().formatted(.dateTime.month().day().hour().minute()))"
-                    )
-                    .fontWeight(.light)
-                    .foregroundColor(.black)
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                    Text(weather.name)
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.black)
+                    
+                    Spacer()
+                }
+                
+                Text(
+                    "Today, \(Date().formatted(.dateTime.month().day().hour().minute()))"
+                )
+                .fontWeight(.light)
+                .foregroundColor(.black)
+                
+                HStack {
+                    Spacer()
+                    
+                    Text(weather.main.feelsLike.roundDouble() + "°C" )
+                        .font(.system(size: 50))
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .padding()
+                }
                 
                 Spacer()
                 
-                VStack {
-                    HStack {
-                        Spacer()
-                        
-                        Text(weather.main.feelsLike.roundDouble() + " °C" )
-                            .font(.system(size: 50))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.black)
-                            .padding()
-                    }
-                    
-                    Spacer()
-                }.frame(maxWidth: .infinity, alignment: .trailing)
             }
             .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
                 Spacer()
@@ -100,7 +94,6 @@ struct WeatherView: View {
                         )
                     }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .padding(.bottom, 20)
                 .background(Color(.systemBackground))
