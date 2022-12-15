@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherView: View {
     var weather: ResponseBody
+    var notificationViewModel = NotificationViewModel()
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -20,15 +21,16 @@ struct WeatherView: View {
                         Text(weather.name)
                             .font(.largeTitle)
                             .fontWeight(.heavy)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(.black)
                             
                         Spacer()
                     }
+                    
                     Text(
                         "Today, \(Date().formatted(.dateTime.month().day().hour().minute()))"
                     )
                     .fontWeight(.light)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(.black)
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()
@@ -55,26 +57,10 @@ struct WeatherView: View {
                 
                 VStack(alignment: .leading, spacing: 20) {
                     Button(){
-                        UNUserNotificationCenter.current().requestAuthorization(
-                            options: [.alert, .badge, .sound]
-                        ) { success, error in
-                            if let error = error {
-                                print(error.localizedDescription)
-                            }
-                        }
-                        let content = UNMutableNotificationContent()
-                        content.title = "Weather Now"
-                        content.subtitle = "\(weather.weather[0].description), min of \(weather.main.tempMin.roundDouble())°C and max of \(weather.main.tempMax.roundDouble())°C"
-                        content.sound = UNNotificationSound.default
-                        
-                        // show this notification five seconds from now
-                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                        
-                        // choose a random identifier
-                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                        
-                        // add our notification request
-                        UNUserNotificationCenter.current().add(request)
+                        notificationViewModel.requestNotification(
+                            subtitle:
+                                "\(weather.weather[0].description), min of \(weather.main.tempMin.roundDouble())°C and max of \(weather.main.tempMax.roundDouble())°C"
+                        )
                     }
                     label: {
                         Label("Weather Now", systemImage: "info.bubble.fill")
