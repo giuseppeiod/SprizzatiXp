@@ -15,8 +15,8 @@ struct WeatherView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 5) {
                     HStack{
-                        
                         Spacer()
+                        
                         Text(weather.name)
                             .font(.largeTitle)
                             .fontWeight(.heavy)
@@ -24,11 +24,12 @@ struct WeatherView: View {
                             
                         Spacer()
                     }
-                    Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                        .fontWeight(.light)
-                        .foregroundColor(Color.black)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(
+                        "Today, \(Date().formatted(.dateTime.month().day().hour().minute()))"
+                    )
+                    .fontWeight(.light)
+                    .foregroundColor(Color.black)
+                }.frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()
                 
@@ -42,29 +43,28 @@ struct WeatherView: View {
                             .foregroundColor(Color.black)
                             .padding()
                     }
+                    
                     Spacer()
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                
+                }.frame(maxWidth: .infinity, alignment: .trailing)
             }
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
-                
                 Spacer()
+                
                 VStack(alignment: .leading, spacing: 20) {
                     Button(){
-                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        UNUserNotificationCenter.current().requestAuthorization(
+                            options: [.alert, .badge, .sound]
+                        ) { success, error in
                             if let error = error {
                                 print(error.localizedDescription)
                             }
-
                         }
                         let content = UNMutableNotificationContent()
                         content.title = "Weather Now"
-                        content.subtitle =
-                        "\(weather.weather[0].description), min of \(weather.main.tempMin.roundDouble())°C and max of \(weather.main.tempMax.roundDouble())°C"
+                        content.subtitle = "\(weather.weather[0].description), min of \(weather.main.tempMin.roundDouble())°C and max of \(weather.main.tempMax.roundDouble())°C"
                         content.sound = UNNotificationSound.default
                         
                         // show this notification five seconds from now
@@ -74,38 +74,55 @@ struct WeatherView: View {
                         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                         
                         // add our notification request
-                        UNUserNotificationCenter.current().add(request)                    }
+                        UNUserNotificationCenter.current().add(request)
+                    }
                     label: {
                         Label("Weather Now", systemImage: "info.bubble.fill")
-                    }.padding()
-                    
-                    .foregroundColor(Color.systemBlue)
+                    }
+                    .padding()
                         
                     
                     HStack {
-                        WeatherRow(logo: "thermometer", name: "Min temp", value: (weather.main.tempMin.roundDouble() + ("°")))
+                        WeatherRow(
+                            logo: "thermometer",
+                            name: "Min temp",
+                            value: (weather.main.tempMin.roundDouble() + ("°"))
+                        )
+                        
                         Spacer()
-                        WeatherRow(logo: "thermometer", name: "Max temp", value: (weather.main.tempMax.roundDouble() + "°"))
+                        
+                        WeatherRow(
+                            logo: "thermometer",
+                            name: "Max temp",
+                            value: (weather.main.tempMax.roundDouble() + "°")
+                        )
                     }
                     
                     HStack {
-                        WeatherRow(logo: "wind", name: "Wind speed", value: (weather.wind.speed.roundDouble() + " m/s"))
+                        WeatherRow(
+                            logo: "wind",
+                            name: "Wind speed",
+                            value: (weather.wind.speed.roundDouble() + " m/s")
+                        )
+                        
                         Spacer()
-                        WeatherRow(logo: "humidity", name: "Humidity", value: "\(weather.main.humidity.roundDouble())%")
+                        
+                        WeatherRow(
+                            logo: "humidity",
+                            name: "Humidity",
+                            value: "\(weather.main.humidity.roundDouble())%"
+                        )
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .padding(.bottom, 20)
-                .foregroundColor(.systemBlue)
                 .background(Color(.systemBackground))
                 .cornerRadius(20, corners: [.topLeft, .topRight])
             }
         }
-        
         .edgesIgnoringSafeArea(.bottom)
         .background(Image(weather.weather[0].mainImage))
-        //.preferredColorScheme(.dark)
     }
 }
 

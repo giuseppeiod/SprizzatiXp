@@ -23,7 +23,6 @@ struct WelcomeView: View {
                         .bold()
                         .font(.title)
                         .foregroundColor(.systemBlue)
-                
                         .padding()
                 }
                 .multilineTextAlignment(.center)
