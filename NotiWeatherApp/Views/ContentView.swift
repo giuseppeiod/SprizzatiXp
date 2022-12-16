@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var locationManager = LocationManager()
+    @StateObject var locationViewModel = LocationViewModel()
     @ObservedObject private var viewModel: ViewModel = ViewModel()
 
     var body: some View {
         VStack {
-            if let location = locationManager.location {
+            if let location = locationViewModel.location {
                 if let weather = viewModel.weather {
                     WeatherView(weather: weather)
                 } else {
@@ -27,15 +27,15 @@ struct ContentView: View {
                         }
                 }
             } else {
-                if locationManager.isLoading {
+                if locationViewModel.isLoading {
                     LoadingView()
                 } else {
                     WelcomeView()
-                        .environmentObject(locationManager)
+                        .environmentObject(locationViewModel)
                 }
             }
         }
-        .background(Color(.white))
+        .background(.white)
         .preferredColorScheme(.dark)
     }
 }
